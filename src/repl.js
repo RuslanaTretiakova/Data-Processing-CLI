@@ -2,6 +2,8 @@ import readline from 'readline';
 import { handleNavigation } from './navigation.js';
 import { parseArgs } from './utils/argParser.js';
 
+import csvToJson from './commands/csvToJson.js';
+
 export function startRepl(initialDir) {
   let cwd = initialDir;
 
@@ -34,6 +36,10 @@ export function startRepl(initialDir) {
         case 'cd':
         case 'ls':
           cwd = await handleNavigation(command, args, cwd);
+          break;
+
+        case 'csv-to-json':
+          await csvToJson(args, cwd);
           break;
 
         default:
