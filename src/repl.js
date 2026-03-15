@@ -7,6 +7,8 @@ import jsonToCsv from './commands/jsonToCsv.js';
 import count from './commands/count.js';
 import hash from './commands/hash.js';
 import hashCompare from './commands/hashCompare.js';
+import encrypt from './commands/encrypt.js';
+import decrypt from './commands/decrypt.js';
 
 export function startRepl(initialDir) {
   let cwd = initialDir;
@@ -60,6 +62,14 @@ export function startRepl(initialDir) {
 
         case 'hash-compare':
           await hashCompare(args, cwd);
+          break;
+
+        case 'encrypt':
+          await encrypt(args, cwd);
+          break;
+
+        case 'decrypt':
+          await decrypt(args, cwd);
           break;
 
         default:
