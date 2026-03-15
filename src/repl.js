@@ -3,6 +3,8 @@ import { handleNavigation } from './navigation.js';
 import { parseArgs } from './utils/argParser.js';
 
 import csvToJson from './commands/csvToJson.js';
+import jsonToCsv from './commands/jsonToCsv.js';
+import count from './commands/count.js';
 
 export function startRepl(initialDir) {
   let cwd = initialDir;
@@ -40,6 +42,14 @@ export function startRepl(initialDir) {
 
         case 'csv-to-json':
           await csvToJson(args, cwd);
+          break;
+
+        case 'json-to-csv':
+          await jsonToCsv(args, cwd);
+          break;
+
+        case 'count':
+          await count(args, cwd);
           break;
 
         default:
