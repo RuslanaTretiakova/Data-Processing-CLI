@@ -9,6 +9,7 @@ import hash from './commands/hash.js';
 import hashCompare from './commands/hashCompare.js';
 import encrypt from './commands/encrypt.js';
 import decrypt from './commands/decrypt.js';
+import logStats from './commands/logStats.js';
 
 export function startRepl(initialDir) {
   let cwd = initialDir;
@@ -70,6 +71,10 @@ export function startRepl(initialDir) {
 
         case 'decrypt':
           await decrypt(args, cwd);
+          break;
+
+        case 'log-stats':
+          await logStats(args, cwd);
           break;
 
         default:
